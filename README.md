@@ -15,7 +15,7 @@
 - 识别到EAN 13时，可以通过亚马逊查询。
 - 识别到ISBN时，会调用[豆瓣图书api](https://developers.douban.com/wiki/?title=book_v2#get_isbn_book)查询图书信息。
 - 识别到开头为690-695（中国大陆的商品）的EAN 13时，会调用[国家食品（产品）安全追溯平台](http://www.chinatrace.org/)的api查询商品信息。
-- 识别到http://或https://开头的QR Code时可以直接访问。
+- 识别到 http:// 或 https:// 开头的QR Code时可以直接访问。
 - 识别到ss://开头的QR Code时可以打开Shadowsocks并添加配置。
 - 允许其它应用调用。
 
@@ -109,13 +109,13 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ## 截图
 
-![Screenshot1](/docs/screenshot_1.png)
+![Screenshot1](/docs/Screenshot_1.png)
 
 ![Screenshot2](/docs/Screenshot_2.png)
 
-![Screenshot3](/docs/screenshot_3.png)
+![Screenshot3](/docs/Screenshot_3.png)
 
-![Screenshot4](/docs/screenshot_4.png)
+![Screenshot4](/docs/Screenshot_4.png)
 
 ## 第三方库
 

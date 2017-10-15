@@ -104,13 +104,13 @@ protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 ## Screenshots
 
-![Screenshot1](/docs/screenshot_1.png)
+![Screenshot1](/docs/Screenshot_1.png)
 
 ![Screenshot2](/docs/Screenshot_2.png)
 
-![Screenshot3](/docs/screenshot_3.png)
+![Screenshot3](/docs/Screenshot_3.png)
 
-![Screenshot4](/docs/screenshot_4.png)
+![Screenshot4](/docs/Screenshot_4.png)
 
 ## Third party
 
