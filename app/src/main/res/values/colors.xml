@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="possibleResultPoints">#c0ffff00</color>
+    <color name="resultView">#b0000000</color>
+    <color name="viewfinderMask">#60000000</color>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="colorTransparentAccent">#66FFC107</color>
+    <color name="colorText">#C222</color>
+    <color name="colorTitleText">#CEEE</color>
+    <color name="colorHint">#9999</color>
+    <color name="colorEditTextDivider">#FFC107</color>
+    <color name="colorBackground">#EFEFEF</color>
+    <color name="colorPressed">#6DDD</color>
+    <color name="colorDivider">#3000</color>
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorMoreBackground">#FFF</color>
+</resources>

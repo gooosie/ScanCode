@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">Scan Code</string>
+    <string name="description_flashlight">flashlight</string>
+    <string name="description_gallery">gallery</string>
+    <string name="toast_flashlight_unsupport">Flashlight unsupport.</string>
+    <string name="description_barcode">barcode</string>
+    <string name="toast_copy_success">The content has been copied.</string>
+    <string name="toast_decode_failed">Decoding failed.</string>
+    <string name="hint_click_to_copy">Click to copy</string>
+    <string name="save_image">Save</string>
+    <string name="copy_content">Copy</string>
+    <string name="detail">Detail</string>
+    <string name="toast_save_success">Save code image success.</string>
+    <string name="toast_save_failed">Save code image failed.</string>
+    <string name="more_format">Format</string>
+    <string name="more_content">Content</string>
+    <string name="dynamic_amazon">Amazon</string>
+    <string name="dynamic_shadowsocks">Shadowsocks</string>
+    <string name="dynamic_access">Access</string>
+    <string name="icon">icon</string>
+    <string name="about_description">A simple scanning tool.</string>
+    <string name="about_license">License</string>
+    <string name="about_lable" translatable="false">…</string>
+    <string name="about_back_lable" translatable="false">←</string>
+</resources>

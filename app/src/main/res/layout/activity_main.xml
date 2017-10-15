@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context="com.gooosie.scancode.ui.activity.MainActivity">
+
+    <ImageView
+        android:id="@+id/img_code"
+        android:layout_width="@dimen/code_size"
+        android:layout_height="@dimen/code_size"
+        android:layout_centerInParent="true"
+        android:paddingBottom="64dp"
+        android:contentDescription="@string/description_barcode" />
+
+    <EditText
+        android:id="@+id/edit_text_code"
+        style="@style/EditTextTheme"
+        android:layout_width="@dimen/code_size"
+        android:layout_below="@id/img_code"
+        android:layout_centerHorizontal="true" />
+
+</RelativeLayout>
