@@ -2,7 +2,7 @@
 
 一个简单的扫码工具。
 
-[![English](https://img.shields.io/badge/readme-%E4%B8%AD%E6%96%87%E7%89%88-brightgreen.svg?style=flat-square)](/README_EN.md) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](/LICENSE) [![release](https://img.shields.io/github/release/gooosie/ScanCode.svg?style=flat-square)](https://github.com/gooosie/ScanCode/releases)
+[![English](https://img.shields.io/badge/readme-English-brightgreen.svg?style=flat-square)](/README_EN.md) [![GitHub license](https://img.shields.io/badge/license-Apache%202-blue.svg?style=flat-square)](/LICENSE) [![release](https://img.shields.io/github/release/gooosie/ScanCode.svg?style=flat-square)](https://github.com/gooosie/ScanCode/releases)
 
 ## 简介
 
