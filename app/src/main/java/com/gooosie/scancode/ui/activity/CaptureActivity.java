@@ -64,9 +64,9 @@ public class CaptureActivity extends Activity implements ICaptureView, View.OnCl
         captureFragment.setAnalyzeCallback(this);
         getFragmentManager().beginTransaction().replace(R.id.fl_zxing_container, captureFragment).commit();
 
-        mImgBtnGallery = (ImageButton) findViewById(R.id.img_btn_gallery);
-        mImgBtnFlashlight = (ImageButton) findViewById(R.id.img_btn_flashlight);
-        mTextBtnAbout = (TextView) findViewById(R.id.text_btn_about);
+        mImgBtnGallery = findViewById(R.id.img_btn_gallery);
+        mImgBtnFlashlight = findViewById(R.id.img_btn_flashlight);
+        mTextBtnAbout = findViewById(R.id.text_btn_about);
 
         mImgBtnGallery.setOnClickListener(this);
         mImgBtnFlashlight.setOnClickListener(this);

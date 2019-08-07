@@ -69,8 +69,8 @@ public class CaptureFragment extends Fragment implements SurfaceHolder.Callback 
             view = inflater.inflate(R.layout.fragment_capture, null);
         }
 
-        mViewfinderView = (ViewfinderView) view.findViewById(R.id.viewfinder_view);
-        mSurfaceView = (SurfaceView) view.findViewById(R.id.preview_view);
+        mViewfinderView = view.findViewById(R.id.viewfinder_view);
+        mSurfaceView = view.findViewById(R.id.preview_view);
         mSurfaceHolder = mSurfaceView.getHolder();
 
         return view;

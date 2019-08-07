@@ -22,10 +22,10 @@ public class AboutActivity extends Activity {
         }
 
         String version = "v" + BuildConfig.VERSION_NAME;
-        TextView tvVersion = (TextView) findViewById(R.id.about_version);
+        TextView tvVersion = findViewById(R.id.about_version);
         tvVersion.setText(version);
 
-        TextView tvBack = (TextView) findViewById(R.id.text_btn_back);
+        TextView tvBack = findViewById(R.id.text_btn_back);
         tvBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

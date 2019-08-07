@@ -43,8 +43,8 @@ public class MainActivity extends Activity implements IMainView, View.OnClickLis
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
 
-        mImgCode = (ImageView) findViewById(R.id.img_code);
-        mEditTextCode = (EditText) findViewById(R.id.edit_text_code);
+        mImgCode = findViewById(R.id.img_code);
+        mEditTextCode = findViewById(R.id.edit_text_code);
 
         mImgCode.setOnClickListener(this);
         mEditTextCode.setOnClickListener(this);

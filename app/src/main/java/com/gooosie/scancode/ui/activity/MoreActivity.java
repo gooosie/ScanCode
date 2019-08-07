@@ -39,10 +39,10 @@ public class MoreActivity extends Activity implements IMoreView, View.OnClickLis
     public void initView() {
         setContentView(R.layout.activity_more);
 
-        mTextCopy = (TextView) findViewById(R.id.text_btn_copy);
-        mTextSave = (TextView) findViewById(R.id.text_btn_save);
-        mTextMore = (TextView) findViewById(R.id.text_btn_more);
-        mTextDynamic = (TextView) findViewById(R.id.text_btn_dynamic);
+        mTextCopy = findViewById(R.id.text_btn_copy);
+        mTextSave = findViewById(R.id.text_btn_save);
+        mTextMore = findViewById(R.id.text_btn_more);
+        mTextDynamic = findViewById(R.id.text_btn_dynamic);
         mDivider = findViewById(R.id.view_divider_dynamic);
         mPaddingTop = findViewById (R.id.padding_top);
         mPaddingBottom = findViewById (R.id.padding_bottom);
