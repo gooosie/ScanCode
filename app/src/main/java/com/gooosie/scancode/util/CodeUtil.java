@@ -5,6 +5,7 @@ import android.graphics.BitmapFactory;
 import android.graphics.Matrix;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
@@ -69,17 +70,14 @@ public class CodeUtil {
         MultiFormatReader multiFormatReader = new MultiFormatReader();
 
         // 解码的参数
-        Hashtable<DecodeHintType, Object> hints = new Hashtable<DecodeHintType, Object>(2);
+        Hashtable<DecodeHintType, Object> hints = new Hashtable<>(2);
         // 可以解析的编码类型
-        Vector<BarcodeFormat> decodeFormats = new Vector<BarcodeFormat>();
-        if (decodeFormats == null || decodeFormats.isEmpty()) {
-            decodeFormats = new Vector<BarcodeFormat>();
+        Vector<BarcodeFormat> decodeFormats = new Vector<>();
 
-            // 这里设置可扫描的类型
-            decodeFormats.addAll(DecodeFormatManager.ONE_D_FORMATS);
-            decodeFormats.addAll(DecodeFormatManager.QR_CODE_FORMATS);
-//            decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS);
-        }
+        // 这里设置可扫描的类型
+        decodeFormats.addAll(DecodeFormatManager.ONE_D_FORMATS);
+        decodeFormats.addAll(DecodeFormatManager.QR_CODE_FORMATS);
+        decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS);
         hints.put(DecodeHintType.POSSIBLE_FORMATS, decodeFormats);
         // 设置继续的字符编码格式为UTF8
         hints.put(DecodeHintType.CHARACTER_SET, "UTF8");
@@ -105,27 +103,58 @@ public class CodeUtil {
         }
     }
 
+    /***
+     * 生成条码图片
+     * @param content 上下文
+     * @param format 条码格式
+     * @param w 宽
+     * @param h 高
+     * @return 条码的位图
+     */
     public static Bitmap createImage(String content, BarcodeFormat format, int w, int h) {
         if (TextUtils.isEmpty(content)) {
             return null;
         }
         try {
-            Hashtable<EncodeHintType, Object> hints = new Hashtable<EncodeHintType, Object>();
+            int margin = 2;
+
+            Hashtable<EncodeHintType, Object> hints = new Hashtable<>();
             hints.put(EncodeHintType.CHARACTER_SET, "UTF-8");
             //容错级别
             hints.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
             //设置空白边距的宽度
-            hints.put(EncodeHintType.MARGIN, 2);
+            hints.put(EncodeHintType.MARGIN, margin);
 
             BitMatrix bitMatrix = new MultiFormatWriter().encode(content, format, w, h, hints);
-            // FIXME: 放大DataMatrix
+
             int[] pixels = new int[w * h];
-            for (int y = 0; y < h; y++) {
-                for (int x = 0; x < w; x++) {
-                    if (bitMatrix.get(x, y)) {
-                        pixels[y * w + x] = 0xff000000;
-                    } else {
-                        pixels[y * w + x] = 0xffffffff;
+            if (w == bitMatrix.getWidth() && h == bitMatrix.getHeight()) {
+                for (int y = 0; y < h; y++) {
+                    for (int x = 0; x < w; x++) {
+                        if (bitMatrix.get(x, y)) {
+                            pixels[y * w + x] = 0xff000000;
+                        } else {
+                            pixels[y * w + x] = 0xffffffff;
+                        }
+                    }
+                }
+            } else {
+                // 放大 DataMatrix // TODO: 并加入边距
+                Log.d(TAG, "createImage: \n" + bitMatrix.toString());
+                float hScale = (float) h / bitMatrix.getHeight();
+                float wScale = (float) w / bitMatrix.getWidth();
+
+                float lineSpace = 1 / hScale;
+                float columnSpace = 1 / wScale;
+
+
+                for (int y = 0; y < h; y++) {
+                    for (int x = 0; x < w; x++) {
+                        if (bitMatrix.get((int) (columnSpace * x), (int) (lineSpace * y))) {
+                            pixels[y * w + x] = 0xff000000;
+                        } else {
+                            pixels[y * w + x] = 0xffffffff;
+                        }
                     }
                 }
             }
@@ -203,7 +232,7 @@ public class CodeUtil {
         return null;
     }
 
-    private static Bitmap getScaleLogo(Bitmap logo,int w,int h){
+    private static Bitmap getScaleLogo(Bitmap logo,int w,int h) {
         if(logo == null)return null;
         Matrix matrix = new Matrix();
         float scaleFactor = Math.min(w * 1.0f / 5 / logo.getWidth(), h * 1.0f / 5 /logo.getHeight());
@@ -217,9 +246,9 @@ public class CodeUtil {
      */
     public interface AnalyzeCallback{
 
-        public void onAnalyzeSuccess(Bitmap mBitmap, Result result);
+        void onAnalyzeSuccess(Bitmap mBitmap, Result result);
 
-        public void onAnalyzeFailed();
+        void onAnalyzeFailed();
     }
 
 

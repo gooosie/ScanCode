@@ -22,7 +22,7 @@ public class DecodeFormatManager {
     public static final Vector<BarcodeFormat> PRODUCT_FORMATS;
     public static final Vector<BarcodeFormat> ONE_D_FORMATS;
     public static final Vector<BarcodeFormat> QR_CODE_FORMATS;
-// FIXME:    public static final Vector<BarcodeFormat> DATA_MATRIX_FORMATS;
+    public static final Vector<BarcodeFormat> DATA_MATRIX_FORMATS;
 
     static {
         PRODUCT_FORMATS = new Vector<>(5);
@@ -41,9 +41,8 @@ public class DecodeFormatManager {
         QR_CODE_FORMATS = new Vector<>(1);
         QR_CODE_FORMATS.add(BarcodeFormat.QR_CODE);
 
-        // FIXME: uncomment when bug fix
-//        DATA_MATRIX_FORMATS = new Vector<>(1);
-//        DATA_MATRIX_FORMATS.add(BarcodeFormat.DATA_MATRIX);
+        DATA_MATRIX_FORMATS = new Vector<>(1);
+        DATA_MATRIX_FORMATS.add(BarcodeFormat.DATA_MATRIX);
     }
 
     private DecodeFormatManager() {
@@ -88,8 +87,8 @@ public class DecodeFormatManager {
                     return QR_CODE_FORMATS;
                 case Intents.Scan.ONE_D_MODE:
                     return  ONE_D_FORMATS;
-//  FIXME:               case Intents.Scan.DATA_MATRIX_MODE:
-//  FIXME:                   return DATA_MATRIX_FORMATS;
+                case Intents.Scan.DATA_MATRIX_MODE:
+                    return DATA_MATRIX_FORMATS;
                 default:
                     break;
             }

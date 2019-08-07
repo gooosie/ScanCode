@@ -33,7 +33,7 @@ public class ViewfinderView extends View {
     private final int maskColor;
     private final int resultColor;
     private final int resultPointColor;
-    private Collection<ResultPoint> possibleResultPoints;
+    private Collection<ResultPoint> possibleResultPoints = new HashSet<>(5);
     private Collection<ResultPoint> lastPossibleResultPoints;
 
     // 扫描框边角颜色
@@ -51,7 +51,6 @@ public class ViewfinderView extends View {
         maskColor = resources.getColor(R.color.viewfinderMask);
         resultColor = resources.getColor(R.color.resultView);
         resultPointColor = resources.getColor(R.color.possibleResultPoints);
-        possibleResultPoints = new HashSet<ResultPoint>(5);
 
         initInnerRect(context, attrs);
     }
@@ -156,7 +155,7 @@ public class ViewfinderView extends View {
             if (currentPossible.isEmpty()) {
                 lastPossibleResultPoints = null;
             } else {
-                possibleResultPoints = new HashSet<ResultPoint>(5);
+                possibleResultPoints.clear();
                 lastPossibleResultPoints = currentPossible;
                 paint.setAlpha(OPAQUE);
                 paint.setColor(resultPointColor);

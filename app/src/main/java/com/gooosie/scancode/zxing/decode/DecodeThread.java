@@ -2,6 +2,7 @@ package com.gooosie.scancode.zxing.decode;
 
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.DecodeHintType;
@@ -36,10 +37,10 @@ final class DecodeThread extends Thread {
         mHints = new Hashtable<>(3);
 
         if (decodeFormats == null || decodeFormats.isEmpty()) {
-            decodeFormats = new Vector<BarcodeFormat>();
+            decodeFormats = new Vector<>();
             decodeFormats.addAll(DecodeFormatManager.ONE_D_FORMATS);
             decodeFormats.addAll(DecodeFormatManager.QR_CODE_FORMATS);
-//            decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS);
+            decodeFormats.addAll(DecodeFormatManager.DATA_MATRIX_FORMATS);
         }
 
         mHints.put(DecodeHintType.POSSIBLE_FORMATS, decodeFormats);
@@ -55,7 +56,7 @@ final class DecodeThread extends Thread {
         try {
             mHandlerInitLatch.await();
         } catch (InterruptedException e) {
-            // nbcs
+            Log.d(TAG, "getHandler: " + e);
         }
 
         return mHandler;
